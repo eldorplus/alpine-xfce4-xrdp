@@ -1,10 +1,16 @@
-FROM alpine:3.8
+FROM alpine:latest
 
+ENV LC_ALL C.UTF-8
+ENV LANG fr_US.UTF-8
+ENV LANGUAGE fr_US.UTF-8
+ENV DISPLAY :1
+
+# firefox --user-data-dir ~/.firefox
 # add packages
 #RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-RUN apk --update --no-cache add xrdp xvfb alpine-desktop xfce4 thunar-volman \
+RUN apk --update --no-cache add xrdp xvfb alpine-desktop xfce4 xfce4-session xfce4-terminal thunar-volman xfce4-power-manager \
 faenza-icon-theme paper-gtk-theme paper-icon-theme slim xf86-input-synaptics xf86-input-mouse xf86-input-keyboard \
-setxkbmap openssh util-linux dbus wireshark ttf-freefont xauth supervisor x11vnc \
+setxkbmap openssh util-linux dbus ttf-freefont xauth supervisor x11vnc firefox-esr \
 util-linux dbus ttf-freefont xauth xf86-input-keyboard sudo \
 && rm -rf /tmp/* /var/cache/apk/*
 
@@ -24,6 +30,7 @@ RUN chown -R alpine:alpine /home/alpine
 RUN xrdp-keygen xrdp auto
 
 EXPOSE 3389 22
-VOLUME ["/etc/ssh"]
+VOLUME [ "/home" ]
+WORKDIR /home
 ENTRYPOINT ["/bin/docker-entrypoint.sh"]
 CMD ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]

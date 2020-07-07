@@ -1,0 +1,16 @@
+version: '3.7'
+
+# https://github.com/eldorplus/docker-xrdp
+services:
+  xrdp:
+    #image: frxyt/xrdp:latest
+    image: eldorplus/alpine-desktop:latest
+    build:
+      #args:
+      #  - DOCKER_TAG=xfce
+      context: .
+    ports:
+      - "22:22"
+      - "3389:3389"
+    volumes:
+      - ./home:/home:rw

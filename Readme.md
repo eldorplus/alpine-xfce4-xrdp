@@ -2,6 +2,11 @@
 
 Alpine linux xfce4 rdp server
 
+# Build
+```bash
+docker build -t eldorplus/alpine-desktop .
+```
+
 # Usage
 
 Start the server

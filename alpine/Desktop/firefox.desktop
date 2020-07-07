@@ -1,9 +1,10 @@
 [Desktop Entry]
+TryExec=firefox
 Exec=firefox %u
 Icon=firefox
 Type=Application
 Terminal=false
-Name=Firefox
+Name=Mozilla Firefox
 Name[bn]=ফায়ারফক্স3
 Name[eo]=Fajrovulpo3
 Name[fi]=Firefox3
@@ -43,7 +44,7 @@ GenericName[ko]=웹 브라우저
 GenericName[lo]=ເວັບບຣາວເຊີ
 GenericName[lt]=Žiniatinklio naršyklė
 GenericName[lv]=Web Pārlūks
-GenericName[mk]=Прелистувач на Интернет 
+GenericName[mk]=Прелистувач на Интернет
 GenericName[mn]=Веб-Хөтөч
 GenericName[nb]=Nettleser
 GenericName[nds]=Nettkieker
@@ -61,7 +62,7 @@ GenericName[sk]=Webový prehliadač
 GenericName[sl]=Spletni brskalnik
 GenericName[sr]=Веб претраживач
 GenericName[sr@Latn]=Veb pretraživač
-GenericName[ss]=Ibrawuza yeWeb 
+GenericName[ss]=Ibrawuza yeWeb
 GenericName[sv]=Webbläsare
 GenericName[ta]=வலை உலாவி
 GenericName[tg]=Тафсиргари вэб
@@ -76,6 +77,17 @@ GenericName[xh]=Umkhangeli zincwadi we Web
 GenericName[zh_CN]=网页浏览器
 GenericName[zh_TW]=網頁瀏覽器
 GenericName[zu]=Umcingi we-Web
-MimeType=text/html;
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
 StartupNotify=true
+Keywords=web;browser;internet;
 Categories=Network;WebBrowser;
+X-Desktop-File-Install-Version=0.23
+X-XFCE-Source=file:///usr/share/applications/firefox.desktop
+
+[Desktop Action new-window]
+Name=Open a New Window
+Exec=firefox %u
+
+[Desktop Action new-private-window]
+Name=Open a New Private Window
+Exec=firefox --private-window %u
